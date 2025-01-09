@@ -1,7 +1,7 @@
 #!/bin/bash
 #Initializing variables and use in multiple places
-PERSON1=kumar
-PERSON2=Kavi
+PERSON1="kumar"
+PERSON2="Kavi"
 
 echo "$PERSON1: Hi $PERSON2"
 echo "${PERSON2}: I am fine. How do you do"
