@@ -1,5 +1,5 @@
 #!/bin/bash
-#Shebang is used as a Interpreter for validating the syntax and data to smooth execution
+#Shebang - It should be first line of the shell script. It is the interpreter tp execute the commands and syntax(which is present inside the Shell Script) validation 
 
 
 echo "Hello World"
