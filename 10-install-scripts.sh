@@ -30,3 +30,20 @@ else
 
     echo "MYSQL Software already installed"
 fi
+
+#Git Installation
+dnf list installed git
+
+if [ $? -ne 0 ]
+then
+    dnf install git -y
+    if [ $? -ne 0 ]
+    then   
+        echo "Installing GIT ....... FAILURE"
+        exit 1
+    else
+        echo " Installing GIT ............. SUCCESS"
+    fi
+else
+    echo "GIT is already installed"
+fi
