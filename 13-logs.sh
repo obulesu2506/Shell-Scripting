@@ -52,3 +52,13 @@ else
     echo -e "GIT is already .... $Y INSTALLED $N"
 fi
 
+dnf list installed gcc -y &>>$LOG_FILE_NAME
+
+if [ $? -ne 0 ]
+then
+    dnf install gcc -y &>>$LOG_FILE_NAME
+    VALIDATE $? "INSTALLING GCC"
+else
+    echo -e "GCC is already ... $Y INSTALLED $N"
+fi
+
