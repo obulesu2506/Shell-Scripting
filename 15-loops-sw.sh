@@ -22,13 +22,17 @@ VALIDATE(){
     fi
 }
 
-echo " Script started to execute at : $TIMESTAMP" &>>$LOG_FILE_NAME
 
-if [ $USERID -ne 0 ]
-then
-    echo "ERROR:: You must have SUDO access for execute the script"
-    exit 1
-fi
+CHECK_ROOT(){
+
+    if [ $USERID -ne 0 ]
+    then
+        echo "ERROR:: You must have SUDO access for execute the script"
+        exit 1 # Other than 0
+    fi
+}
+
+echo " Script started to execute at : $TIMESTAMP" &>>$LOG_FILE_NAME
 
 for package in $@
 do
@@ -40,5 +44,5 @@ do
     else
         echo -e "$package is already .... $Y INSTALLED $N"
     fi
-    
+     
 done
