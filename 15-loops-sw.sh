@@ -34,6 +34,8 @@ CHECK_ROOT(){
 
 echo " Script started to execute at : $TIMESTAMP" &>>$LOG_FILE_NAME
 
+CHECK_ROOT
+
 for package in $@
 do
     dnf list installed $package &>>$LOG_FILE_NAME
