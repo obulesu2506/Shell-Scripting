@@ -15,7 +15,7 @@ TIMESTAMP=$(date +%Y-%m-%d-%H-%M-%S)
 LOG_FILE_NAME="$LOGS_FOLDER/$LOG_FILE-$TIMESTAMP.log"
 
 USAGE(){
-    echo -e "$R USAGE :: $N backup <SOURCE DIR> <DEST DIR> <DAYS(optional)>"
+    echo -e "$R USAGE :: $N $(echo $0 | awk -F "-" '{print $NF}' | cut -d "." -f1) <SOURCE DIR> <DEST DIR> <DAYS(optional)>"
     exit 1 #
 }
 
