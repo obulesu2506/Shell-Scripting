@@ -7,7 +7,7 @@ N="\e[0m"
 
 SOURCE_DIR=$1
 DEST_DIR=$2
-DAYS=$(3:-14) #If User doesn't provide number of days input then by defauly system will ocnsider 14 days
+DAYS=${3:-14} #If User doesn't provide number of days input then by defauly system will ocnsider 14 days
 
 LOGS_FOLDER="/home/ec2-user/shellscript-logs"
 LOG_FILE=$(echo $0 | awk -F "/" '{print $NF}' | cut -d "." -f1)
