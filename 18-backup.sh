@@ -47,14 +47,14 @@ if [ -n "$FILES" ] # True if there are any files to ZIP
 then
     echo -e " FILES are: $G $FILES $N" &>>$LOG_FILE_NAME
     ZIP_FILE="$DEST_DIR/app-logs-$TIMESTAMP.ZIP"
-    #find $SOURCE_DIR -name "*.log" -mtime +$DAYS | zip -@ "$ZIP_FILE"
-    $FILES | zip -@ "$ZIP_FILE"
-    
-    if [ $? -ne 0 ]
-    then
-        echo -e " ERROR :: $Y ZIP $N software not present. You must install ZIP"
-        exit 1 # other than 0 for return in case if the condition is failure
-    fi
+    find $SOURCE_DIR -name "*.log" -mtime +$DAYS | zip -@ "$ZIP_FILE"
+    #$FILES | zip -@ "$ZIP_FILE" # this alternative method not working
+
+    # if [ $? -ne 0 ]
+    # then
+    #     echo -e " ERROR :: $Y ZIP $N software not present. You must install ZIP"
+    #     exit 1 # other than 0 for return in case if the condition is failure
+    # fi
 
     if [ -f "$ZIP_FILE" ]
     then
