@@ -47,7 +47,9 @@ if [ -n "$FILES" ] # True if there are any files to ZIP
 then
     echo -e " FILES are: $G $FILES $N" &>>$LOG_FILE_NAME
     ZIP_FILE="$DEST_DIR/app-logs-$TIMESTAMP.ZIP"
-    find $SOURCE_DIR -name "*.log" -mtime +$DAYS | zip -@ "$ZIP_FILE"
+    #find $SOURCE_DIR -name "*.log" -mtime +$DAYS | zip -@ "$ZIP_FILE"
+    $FILES | zip -@ "$ZIP_FILE"
+    
     if [ $? -ne 0 ]
     then
         echo -e " ERROR :: $Y ZIP $N software not present. You must install ZIP"
@@ -59,9 +61,9 @@ then
         echo -e "Successfully created zip file for the files older than $G $DAYS $N"
         while read -r filepath # filepath is the variable and can give any name/variable
         do
-            echo "Deleting the files: $Y $filepath $N" &>>$LOG_FILE_NAME
+            echo -e "Deleting the files: $Y $filepath $N" &>>$LOG_FILE_NAME
             rm -rf $filepath
-            echo "Deleted the file: $G $filepath $N"
+            echo -e "Deleted the file: $G $filepath $N"
 
         done <<< $FILES
     else
