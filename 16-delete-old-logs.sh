@@ -6,7 +6,7 @@ G="\e[33m"
 N="\e[0m"
 
 
-SOURCE_DIR="/home/ec-user/app-logs"
+SOURCE_DIR="/home/ec2-user/app-logs"
 
 LOGS_FOLDER="/var/log/shellscript-logs"
 LOG_FILE=$(echo $0 | cut -d "." -f1)
@@ -15,7 +15,7 @@ LOG_FILE_NAME="$LOGS_FOLDER/$LOG_FILE-$TIMESTAMP.log"
 
 echo -e "Script started to execute at : $Y $TIMESTAMP $N" &>>$LOG_FILE_NAME
 
-mkdir -p "/home/ec-user/app-logs"
+mkdir -p "/home/ec2-user/app-logs"
 
 FILES_TO_DELETE=$(find $SOURCE_DIR -name "*.log" -mtime +14)
 echo "FILES to be deleted: $FILES_TO_DELETE"
@@ -25,7 +25,7 @@ do
     echo "DELETING the files: $filepath" &>>$LOG_FILE_NAME
 
     echo "DELETED the files: $filepath"
-    
+
 done <<< $FILES_TO_DELETE
 
 
