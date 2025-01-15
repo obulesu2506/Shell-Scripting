@@ -16,6 +16,7 @@ LOG_FILE_NAME="$LOGS_FOLDER/$LOG_FILE-$TIMESTAMP.log"
 echo -e "Script started to execute at : $Y $TIMESTAMP $N" &>>$LOG_FILE_NAME
 
 mkdir -p "/home/ec2-user/app-logs"
+mkdir -p "/var/log/shellscript-logs"
 
 FILES_TO_DELETE=$(find $SOURCE_DIR -name "*.log" -mtime +14)
 echo "FILES to be deleted: $FILES_TO_DELETE"
